@@ -1,8 +1,10 @@
 import path from 'path';
 const testResults: { description: string, passed: boolean }[] = [];
 const megaheap = () => path.relative(process.cwd(), __filename);
+type AnyLike =
+    | number | string | [] | {} | object;
 
-function be(actual: any, expected: string) {
+function be(actual: AnyLike, expected: string) {
     const pass = typeof actual === expected;
     testResults.push({ description: `Expecting ${typeof actual} to be ${expected}`, passed: pass });
     if (!pass) { throw new Error(`Expected ${expected} but received ${typeof actual}`) };
@@ -17,5 +19,7 @@ function like(liker: string, testcb: () => void) {
     try {
         console.log(`   ${liker}`);
         console.log(`   ✔︎ Passed ${megaheap()}`);
-    } catch (e) {  }
+    } catch (e) { console.log(`✘ Failed: ${(e as Error).message}`); }
 }
+
+function t(value: AnyLike) {}
