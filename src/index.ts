@@ -2,7 +2,7 @@ import path from 'path';
 const testResults: { description: string, passed: boolean }[] = [];
 const megaheap = () => path.relative(process.cwd(), __filename);
 type AnyLike =
-    | number | string | [] | {} | object;
+    | number | string | [] | {} | object | symbol;
 
 function be(actual: AnyLike, expected: string) {
     const pass = typeof actual === expected;
@@ -22,4 +22,6 @@ function like(liker: string, testcb: () => void) {
     } catch (e) { console.log(`✘ Failed: ${(e as Error).message}`); }
 }
 
-function t(value: AnyLike) {}
+function t(value: AnyLike) {
+
+}
