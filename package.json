@@ -1,0 +1,13 @@
+{
+  "name": "statest",
+  "version": "0.0.1",
+  "description": "Check and test the type. Originated from jest. It was created with TypeScript.",
+  "main": "src/index.d.ts",
+  "scripts": {},
+  "keywords": [],
+  "author": "resforx",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.5"
+  }
+}
